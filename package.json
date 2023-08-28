@@ -1,0 +1,61 @@
+{
+  "name": "electron-test",
+  "version": "0.1.0",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "author": {
+    "name": "Marcus Castro",
+    "email": "marcus.castro0701@gmail.com"
+  },
+  "description": "electron teste",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-packager": "^17.1.2",
+    "path-browserify": "^1.0.1",
+    "react-scripts": "5.0.1",
+    "styled-components": "^6.0.7",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron:package:win": "npm run build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:mac": "npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "npm run build && electron-builder -l -c.extraMetadata.main=build/electron.js",
+    "electron:app:generate": "electron-packager . --platform win32 --arch x64 --out dist"
+  },
+  "buidld": {
+    "appId": "com.example.electron",
+    "productName": "personal-electron-test",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^18.1.0",
+    "electron-builder": "^24.6.3"
+  }
+}
